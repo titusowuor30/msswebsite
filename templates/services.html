@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li class="active">/ Services</li>
+        </ul>
+    </div>
+</section>
+<!--  services section -->
+<div class="w3l-servicesblock1" id="why">
+    <section id="grids5-block" class="py-5">
+        <div class="container py-lg-5 py-md-4">
+            <div class="row align-items-center">
+                <div class="col-lg-4">
+                    <h3 class="title-big mw-100">Explore solutions</h3>
+                </div>
+                <div class="col-lg-5 mt-lg-0 mt-md-4 mt-3">
+                    <p>Business services solutions and more... </p>
+                </div>
+                <div class="col-lg-3 text-lg-right mt-lg-0 mt-3">
+                    <a href="#allservices" class="btn btn-primary btn-style">View all services</a>
+                </div>
+            </div>
+            <div class="row mt-md-5 mt-4 text-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="grids5-info">
+                        <a href="#service" class="d-block zoom"><img src="{% static 'images/blog3.jpg' %}" alt=""
+                                class="img-fluid service-image" /></a>
+                        <div class="blog-info">
+                            <h4><a href="#service">Service title here..</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--  //services section -->
+<!-- services page services section -->
+<section class="w3l-services" id="core">
+    <div class="midd-w3 py-5">
+        <div class="container py-lg-5 py-md-3 py-2">
+            <div class="row">
+                <div class="col-lg-6 mb-lg-0 mb-md-5 mb-5 align-self">
+                    <h6 class="title-small">Core featured services</h6>
+                    <h3 class="title-big mx-0">Best Featured Services We Serve to all Over the World </h3>
+                    <blockquote  class="mt-md-4 mt-3">
+                        General Service description...
+                    </blockquote>
+                    <a href="#jobs" class="btn btn-primary btn-style mt-md-5 mt-4 mr-2">Work with us</a>
+                    <a href="{% url 'more' %}" class="btn btn-outline-primary btn-style mt-md-5 mt-4">Learn More</a>
+                </div>
+                <div class="col-lg-6 align-self-center">
+                    <div class="row features4-grids">
+                        <div class="col-md-6">
+                            <div class="features4-grid">
+                                <div class="feature-images">
+                                    <span class="fa fa-desktop" aria-hidden="true"></span>
+                                </div>
+                                <h5><a href="#about">Title here..</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //services page services section -->
+ <section class="w3l-bottom-grids-6 py-5" id="allservices">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h6 class="title-small text-center">Our Services </h6>
+            <h3 class="title-big mb-md-5 mb-4 text-center">Exclusive Services for our Clients
+                from MSS.</h3>
+            <div class="grids-area-hny main-cont-wthree-fea row">
+                <div class="col-lg-3 col-md-6 grids-feature mt-4">
+                    <div class="area-box">
+                        <span class="fa fa-laptop"></span>
+                        <h4><a href="#feature" class="title-head">Title here...</a></h4>
+                        <p>Service description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //bottom-grids-->
+<section class="w3l-bottom py-5">
+    <div class="container">
+        <div class="subscribe">
+            <div class="row">
+                <div class="col-lg-9 header-section mx-auto">
+                    <h3 class="title-big mx-0 mw-100"> Work with our best Business Team </h3>
+                </div>
+                <div class="col-lg-3 mt-lg-0 mt-4 align-self text-lg-right">
+                    <a href="#features" class="btn btn-light btn-style">Work with us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
