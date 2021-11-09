@@ -1,26 +1,41 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <!-- main-slider -->
 <section class="w3l-main-slider" id="home">
     <div class="companies20-content">
         <div class="owl-one owl-carousel owl-theme">
             <div class="item">
                 <li>
-                    <div class=" banner-view bg bg2"  style="background-image: url('{% static "images/banner1.png" %}'); width:inherit;">
+                    <div class="banner-view banner-top1 bg bg2">
                         <div class="banner-info">
                             <div class="container">
                                 <div class="banner-info-bg">
-                                    <h6>We are Creative</h6>
-                                    <h5>MSS|Masterspace Solutions </h5>
-                                    <p class="mt-md-4 mt-3">Add slider content here...</p>
-                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'more' %}"> Learn More</a>
+                                    <h6>{{cms_first.title}}</h6>
+                                    <h5>{{cms_first.overview}}</h5>
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'more' cms_first.id %}"> Learn More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
             </div>
+            {% for cm in cms %}
+            <div class="item">
+                <li>
+                    <div class="slider-info  banner-view banner-top1 bg bg2">
+                        <div class="banner-info">
+                            <div class="container">
+                                <div class="banner-info-bg">
+                                    <h6>{{cm.title}}</h6>
+                                    <h5>{{cm.overview}}</h5>
+                                    <p class="mt-md-4 mt-3">{{cm.short_description}}.</p>
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#"> Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -32,15 +47,14 @@
             <div class="row">
                 <div class="col-lg-6 mb-lg-0 mb-md-5 mb-5 align-self">
                     <h3 class="title-big" style="color: lawngreen;">MSS Overview</h3>
-                    <h3 class="title-big mx-0">Best IT Solution Service From Experienced Engineers</h3>
-                    <p class="mt-md-4 mt-3">“At Masterspace Solutions, we will walk and work with you to together, to build customized Projects and Product solutions to your business, your strategy and your needs that help you achieve your unique value proposition.</p>
-                    <p class="mt-3"> Whatever you can IMAGINE, we can CREATE a strategy together so your organization may EXPERIENCE a whole new approach to successfully growing your revenue. Let us worry about the success of your projects and products while you concentrate on your core business”. Trust us today for Tangible Products!</p>
-                    <a href="#features" class="btn btn-primary btn-style mt-md-5 mt-4 mr-2">Explore features</a>
-                    <a href="#view" class="btn btn-outline-primary btn-style mt-md-5 mt-4"> View all</a>
+                    <h3 class="title mx-0">{{abt.overview}}</h3>
+                    <a href="{% url 'services' %}" class="btn btn-primary btn-style mt-md-5 mt-4 mr-2">Explore
+                        features</a>
+                    <a href="#about_mss" class="btn btn-outline-primary btn-style mt-md-5 mt-4"> View all</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="position-relative">
-                        <img src="{% static 'images/banner4.png' %}" alt="" class="radius-image img-fluid">
+                        <img src="{% if cm_image %}{% static 'images/banner4.png' %}{% else %}{% static 'images/banner4.png' %}{% endif %}" alt="" class="radius-image img-fluid">
                     </div>
                 </div>
             </div>
@@ -49,102 +63,113 @@
 </section>
 <!-- //about page about section -->
 <!--  services section -->
+{% if n_services %}
 <div class="w3l-servicesblock2" id="services">
     <section id="grids5-block" class="py-5">
         <div class="container py-lg-5 py-md-4 py-2">
-            <h3 class="title-big text-center">Some of Our Digital
-                IT Services</h3>
+            <h3 class="title-big text-center">Some of Our Digital IT Services</h3>
             <div class="row mt-lg-5 mt-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="grids5-info">
-                        <a href="#service" class="d-block zoom"><img src="{% static 'images/s1.jpg' %}" alt=""
-                                class="img-fluid service-image" /></a>
+                {% for n in n_services %}
+                <div class="col-lg-4 col-md-6 w-100" style="width: 50px;;">
+                    <div class="grids5-info" style="background-color: rgb(133, 128, 128);">
                         <div class="blog-info">
-                            <span class="fa fa-desktop">icon</span>
-                            <h4><a href="#service">Title</a></h4>
+                            <i class="{{n.icon}}"></i>
+                            <h4>
+                                <a href="{% url 'more' n.id %}">{{n.title}}
+                            </a>
+                                <p>{{n.overview}}</p>
+                            </h4>
+                            <a href="{% url 'more' n.id %}"><span></i><i class="fa fa-arrow-right" style="margin:auto;text-align:center;">View</i></span></a>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
 </div>
+{% endif %}
 <!--  //services section -->
 <section class="w3l-products w3l-faq-block py-5" id="projects">
     <div class="container py-lg-5 py-md-4 py-2">
         <div class="row ">
             <div class="col-lg-6 mx-auto">
-                <h3 class="title-big mb-md-5 mb-4 mw-100">Need a Beter Work? We are here to IT Solution with 30 years of experience</h3>
+                <h3 class="title-big mb-md-5 mb-4 mw-100">We are here to IT Solution with 30 years of experience</h3>
                 <!--Horizontal Tab-->
                 <div id="parentHorizontalTab">
                     <ul class="resp-tabs-list hor_1 mb-2">
-                        <li>What we do</li>
+                        <li id="about_mss">What we do</li>
                         <li>Our Mission</li>
                         <li>Social impact</li>
                         <div class="clear"></div>
                     </ul>
-                    <div class="resp-tabs-container hor_1">
+                    <div class="resp-tabs-container hor_1" style="overflow: auto;">
                         <div class="products-content">
-                            <h4 class="head">Provide world class ICT consulting services to our clients focussed on the following core areas, Projects, products and ICT Integration..</h4>
-                            <p>This Our History to a tendency to believe that the smart looking website is the first impression. 
-                                Innovative, Integrity, Reliability, efficiency and Effectiveness</p>
-                                <ul class="w3l-right-book mt-4">
-                                    <li><span class="fa fa-check" aria-hidden="true"></span>Leading private equity firms</li>
-                                </ul>
+                            <p style="text-align: justify;">{{abt.description}}</p>
                         </div>
                         <div class="products-content">
-                            <h4 class="head">Provide world class ICT consulting services to our clients focussed on the following core areas, Projects, products and ICT Integration..</h4>
-                            <p>Innovative, Integrity, Reliability, efficiency and Effectiveness</p>
                             <ul class="w3l-right-book mt-4">
-                                <li><span class="fa fa-check" aria-hidden="true"></span>Helping Nonprofit organizations</li>
-                                <li><span class="fa fa-check" aria-hidden="true"></span>Leading private equity firms</li>
+                                <li><span class="fa fa-check" aria-hidden="true"></span>{{abt.mission}}</li>
+                                <li><span class="fa fa-check" aria-hidden="true"></span>{{abt.vission}}</li>
                             </ul>
                         </div>
                         <div class="products-content">
-                            <h4 class="head">Provide world class ICT consulting services to our clients focussed on the following core areas, Projects, products and ICT Integration.</h4>
-                            <p>Innovative, Integrity, Reliability, efficiency and Effectiveness</p>
                             <ul class="w3l-right-book mt-4">
-                                <li><span class="fa fa-check" aria-hidden="true"></span>Always Fast and friendly support</li>
-                                <li><span class="fa fa-check" aria-hidden="true"></span>Experienced Professional Team</li>
+                                <li><span class="fa fa-check" aria-hidden="true"></span>Always Fast and friendly support
+                                </li>
+                                <li><span class="fa fa-check" aria-hidden="true"></span>Experienced Professional Team
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 pr-lg-5 mt-lg-0 mt-sm-5 mt-4" id="help">
-                <div class="accordion" >
+                <div class="accordion">
                     <div class="accordion-item">
-                        <button id="accordion-button-1" aria-expanded="true"><span class="accordion-title">FAQ - Frequently Asked Questions?</span><span class="icon" aria-hidden="true"></span></button>
+                        <button id="accordion-button-1" aria-expanded="true"><span class="accordion-title">FAQ - Frequently Asked Questions?</span><span
+                                class="icon" aria-hidden="true"></span></button>
                         <div class="accordion-content">
                             <p>Learn more about who we are and get quick tips from our FAQs</p>
                         </div>
                     </div>
+                    {% for q in qas %}
                     <div class="accordion-item">
-                        <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">How to
-                                choose a best web template?</span><span class="icon" aria-hidden="true"></span></button>
+                        <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">
+                            {{q.question}}
+                        </span><span class="icon" aria-hidden="true"></span></button>
                         <div class="accordion-content">
-                            <p>Question answer goes here...</p>
+                            {% for a in q.answers.all %}
+                            <p>{{a.answer}}</p>
+                            {% endfor %}
                         </div>
                     </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!--  services section -->
 <div class="w3l-servicesblock2" id="process">
     <section id="grids5-block" class="py-5">
+        {% if teams %}
         <div class="container py-lg-5 py-md-4 py-2">
             <h3 class="title-big text-center">Our Team</h3>
             <div class="row mt-lg-5 mt-4">
+                {% for t in teams %}
                 <div class="col-lg-3 col-sm-6 mt-md-0 mt-4">
                     <div class="grids5-info">
-                        <a href="#service" class="blog-image d-block zoom"><img src="{% static 'images/team1.png' %}" alt=""
-                                class="img-fluid radius-image" />
+                        <a href="#service" class="blog-image d-block zoom">
+                            {% if t.image %}
+                            <img src="{{t.image.url}}" alt="" class="img-fluid radius-image"/>
+                            {% else %}
+                            <img src="{% static 'images/team1.png' %}" alt="" class="img-fluid radius-image"/>
+                            {% endif %}
                             <div class="image-overlay">
-                                <h4>Software Product Development</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
+                                <h4>{{t.name}}</h4>
+                                <p>{{t.rank}}</p>
                             </div>
                             <div class="iconic-plus">
                                 <span class="fa fa-plus"></span>
@@ -152,8 +177,10 @@
                         </a>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
+        {% endif %}
     </section>
 </div>
 <!--  //services section -->
@@ -163,47 +190,16 @@
             <div class="col-lg-7">
                 <div class="bottom-info">
                     <div class="header-section">
-                        <h3 class="title-big mx-0">Start improving your Business today! Join Us</h3>
-                        <p class="mt-3 pr-lg-5">Lorem ipsum dolor sit amet elit. Velit beatae
-                            rem ullam dolore nisi esse quasi. Integer sit amet. Lorem ipsum dolor sit
-                            amet elit.</p>
+                        <h3 class="title-big mx-0">Start improving your Business today! Contact Us</h3>
                     </div>
                 </div>
             </div>
             <div class="col-lg-5 align-self text-lg-right">
-                <a href="{% url 'more' %}" class="btn btn-secondary btn-outline-dark mt-lg-0 mt-md-5 mt-4 mr-2" style="color: ivory;">Learn More </a>
+                <a href="{% url 'about' %}" class="btn btn-secondary btn-outline-dark mt-lg-0 mt-md-5 mt-4 mr-2" style="color: ivory;">Learn More </a>
                 <a href="{% url 'contact' %}" class="btn btn-style btn-primary mt-lg-0 mt-md-5 mt-4">Contact us</a>
-        </div>
-    </div>
-</section>
-<section class="w3l-services-block-3 py-5" id="services">
-    <div class="features-main py-lg-5 py-md-3">
-        <div class="container">
-            <div class="header-section text-center mx-auto">
-                <h3 class="title-big">MSS Weighbridge Services</h3>
-            </div>
-            <div class="row features mt-lg-4">
-                <div class="col-lg-4 col-md-6 feature-grid">
-                    <a href="#url">
-                        <div class="feature-body service1">
-                            <div class="feature-img">
-                                <span class="fa fa-sun-o" aria-hidden="true"></span>
-                            </div>
-                            <div class="feature-info mt-4">
-                                <h3 class="feature-titel mb-3">Overview of Weighbridge working</h3>
-                                <p class="feature-text">Lorem ipsum dolor sit amet elit et. Debitis nam, minima iste
-                                    ipsum.
-                                </p>
-                                <a href="#read" class="read mt-4 d-block"> Read More</a>
-                            </div>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
-    </div>
 </section>
-
 <!--  News section -->
 <div class="w3l-news text-11" id="homeblog">
     <section id="grids5-block" class="py-5">
@@ -212,19 +208,51 @@
             <div class="row mt-lg-5 mt-4 text11-content">
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
                     <div class="grids5-info">
-                        <a href="#blog-single" class="blog-image d-block zoom"><img src="{% static 'images/banner1.jpg' %}"
-                                alt="" class="img-fluid news-image" />
+                        <a href="#blog-single" class="blog-image d-block zoom"><img src="{% static 'images/banner1.jpg' %}" alt="" class="img-fluid news-image" />
                             <div class="image-overlay">
                                 <span class="fa fa-plus"></span>
                             </div>
                         </a>
                         <div class="blog-info card-body blog-details">
                             <h6 class="">Date</h6>
-                            <a href="#category" class="post">Title</a>
-                            
-                            <a href="#blog-single" class="blog-desc">Content here...</a>
-                                <a href="#blog-single" class="read">Read more <span
-                                        class="fa fa-arrow-right"></span></a>
+                            <a href="#category" class="post">Mission</a>
+
+                            <a href="#blog-single" class="blog-desc">{{abt.mission}}</a>
+                            <a href="/about/" class="read">Read more <span
+                                    class="fa fa-arrow-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
+                    <div class="grids5-info">
+                        <a href="#blog-single" class="blog-image d-block zoom"><img src="{% static 'images/banner1.jpg' %}" alt="" class="img-fluid news-image" />
+                            <div class="image-overlay">
+                                <span class="fa fa-plus"></span>
+                            </div>
+                        </a>
+                        <div class="blog-info card-body blog-details">
+                            <h6 class="">Date</h6>
+                            <a href="#category" class="post">Vission</a>
+
+                            <a href="#blog-single" class="blog-desc">{{abt.vission}}</a>
+                            <a href="/about/" class="read">Read more <span
+                                    class="fa fa-arrow-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
+                    <div class="grids5-info">
+                        <a href="#blog-single" class="blog-image d-block zoom"><img src="{% static 'images/banner1.jpg' %}" alt="" class="img-fluid news-image" />
+                            <div class="image-overlay">
+                                <span class="fa fa-plus"></span>
+                            </div>
+                        </a>
+                        <div class="blog-info card-body blog-details">
+                            <a href="#category" class="post">Core Values</a>
+
+                            <a href="#blog-single" class="blog-desc">{{abt.objectives}}</a>
+                            <a href="/about/" class="read">Read more <span
+                                    class="fa fa-arrow-right"></span></a>
                         </div>
                     </div>
                 </div>
@@ -235,47 +263,29 @@
 <!--  //News section -->
 
 <!-- customers Section -->
+{% if cls %}
 <h1 class="my-3" style="margin: auto;text-align: center;">Our Clients</h1>
 <section class="w3l-customers py-md-5 py-4" id="clients">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="owl-three owl-carousel owl-theme logo-view">
+                    {% for client in cls %}
                     <div class="item">
-                        <img src="{% static 'images/logo1.png' %}" alt="company-logo" class="img-fluid">
+                        <a href="{{client.website}}" style="transform: scale(0.98);">
+                            {% if client.logo %}
+                            <img src="{{client.logo.url}}" alt="company-logo" class="img-fluid" style="border-radius:50%; width: 100%;height:200px"> {% else %}
+                            <img src="{% static 'images/logo1.png' %}" alt="company-logo" class="img-fluid"> {% endif %}
+                            <a href="{{client.website}}">
+                                <p style="margin:auto;font-weight:bold;">{{client.organisation_name}}</p>
+                            </a>
                     </div>
-                    <div class="item">
-                        <img src="{% static 'images/logo2.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static 'images/logo3.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static 'images/logo4.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static 'images/logo1.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static 'images/logo2.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static 'images/logo3.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="{% static 'images/logo4.png' %}" alt="company-logo" class="img-fluid">
-
-                    </div>
+                    {% endfor %}
+                    </a>
                 </div>
             </div>
+
         </div>
-    </div>
 </section>
 <!-- //customers Section -->
-{% endblock %}
+{% endif %} {% endblock %}

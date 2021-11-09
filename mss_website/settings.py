@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!j0x3$+wo9vop+y8d*o*!c9c*)4=x_@9xf(lu1@d+otzy&hvdd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','192.168.0.15']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'mss_sitemodule',
+    'masterspace',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +65,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'masterspace.context_processors.contact',
+                'masterspace.context_processors.services',
+                'masterspace.context_processors.team',
+                'masterspace.context_processors.clients',
             ],
         },
     },
@@ -108,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 

@@ -19,7 +19,7 @@ from django.conf.urls import url
 from django.views.static import serve
 from django.conf import settings
 from django.contrib.staticfiles.urls import static
-from mss_sitemodule.views import *
+from masterspace.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,12 @@ urlpatterns = [
     path('services/',services,name='services'),
     path('contact/',contact,name='contact'),
     path('about/',about,name='about'),
-    path('more/',more,name='more'),
+    path('more/service/<int:id>/',more,name='more'),
+    path('send/message/',send_message,name='message'),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header  =  "Masterspace Administration"  
+admin.site.site_title  =  "MSS admin site"
+admin.site.index_title  =  "MSS Admin"

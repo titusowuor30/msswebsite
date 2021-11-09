@@ -1,227 +1,103 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <section class="w3l-breadcrumb">
-  <div class="container">
-    <ul class="breadcrumbs-custom-path">
-      <li><a href="index.html">Home</a></li>
-      <li class="active">/ About Us</li>
-    </ul>
-  </div>
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="active">/ About Us</li>
+        </ul>
+    </div>
 </section>
 <!-- about section -->
-  <section class="w3l-text-6 py-5" id="about">
+<section class="w3l-text-6 py-5" id="about">
+    <h1 class="title-big text-center m-auto">About Masterspace(MSS)</h1>
     <div class="text-6-mian py-lg-5 py-md-4">
-      <div class="container">
-        <div class="row top-cont-grid align-items-center">
-          <div class="col-lg-6 left-img pr-lg-4">
-            <img src="{% static 'images/about1.jpg' %}" alt="" class="img-responsive radius-image img-fluid" />
-          </div>
-          <div class="col-lg-6 text-6-info mt-lg-0 mt-md-5 mt-4">
-            <h3 class="title-big mw-100">The Largest Business Expert ! Successfully Providing Business Solution from 20 years</h3>
-            <p class="mt-md-4 mt-3">Aenean pulvinar pharetra pellentesque. Cras dignissim, sapien ac tempus bibendum, eros massa fermentum
-              massa, in eleifend ipsum quam vel magna.Maecenas viverra, leo eget semper ultrices.</p>
-            <p class="mt-3">Pellen tesque libero ut justo,
-                ultrices in ligula. Semper at. Lorem init ipsum dolor sit amet elit. Dolor ipsum non velit,
-                culpa! ut justo.</p>
-            <a href="{% url 'more' %}" class="btn btn-style btn-primary mt-sm-5 mt-4">Read More</a>
-          </div>
+        <div class="container">
+            <div class="row top-cont-grid align-items-center">
+                <div class="col-lg-6 left-img pr-lg-4">
+                    <img src="{% static 'images/about1.jpg' %}" alt="" class="img-responsive radius-image img-fluid" />
+                </div>
+                <div class="col-lg-6 text-6-info mt-lg-0 mt-md-5 mt-4">
+                    <h3 class="title mw-100">{{abt.overview}}</p>
+                </div><br>
+                <div style="text-align: justify;font-weight:bold;" id="desc">
+                    <blockquote>
+                        {{abt.description}}
+                    </blockquote>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-  <!-- //about section -->
+</section>
+<!-- //about section -->
 
-  <!-- card section -->
-  <section class="w3l-features-4">
+<!-- card section -->
+{% if c_services %}
+<section class="w3l-features-4">
+    <h1 class="title-big text-center m-auto">About Our Services</h1>
     <div class="features4-block pb-5">
         <div class="container pb-lg-5 pb-md-4 pb-3">
             <div class="row features4-grids">
+                {% for c in c_services %}
                 <div class="col-xl-3 col-sm-6">
-                    <div class="features4-grid active">
-                        <div class="feature-images">
-                            <span class="fa fa-desktop" aria-hidden="true"></span>
-                        </div>
-                        <h5><a href="#url">Monitoring & Review</a></h5>
-                        <a href="{% url 'more' %}" class="grid-link">Read More <span class="fa fa-arrow-right"></span></a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mt-sm-0 mt-4">
                     <div class="features4-grid">
                         <div class="feature-images">
-                            <span class="fa fa-sign-language" aria-hidden="true"></span>
+                            <span class="{{c.icon}}" aria-hidden="true"></span>
                         </div>
-                        <h5><a href="#url">Authorised Business Brand</a></h5>
-                        <a href="{% url 'more' %}" class="grid-link">Read More <span class="fa fa-arrow-right"></span></a>
+                        <h5><a href="{% url 'more' c.id %}">{{c.title}}</a></h5>
+                        <a href="{% url 'more' c.id %}" class="grid-link">
+                            <span>Explore</span>
+                            <span class="fa fa-arrow-right"></span></a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 mt-xl-0 mt-4">
-                    <div class="features4-grid">
-                        <div class="feature-images">
-                            <span class="fa fa-ravelry" aria-hidden="true"></span>
-                        </div>
-                        <h5><a href="#url">Best Business Solutions</a></h5>
-                        <a href="{% url 'more' %}" class="grid-link">Read More <span class="fa fa-arrow-right"></span></a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mt-xl-0 mt-4">
-                    <div class="features4-grid">
-                        <div class="feature-images">
-                            <span class="fa fa-bullhorn" aria-hidden="true"></span>
-                        </div>
-                        <h5><a href="#url">Digital Product Development</a></h5>
-                        <a href="{% url 'more' %}" class="grid-link">Read More <span class="fa fa-arrow-right"></span></a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 </section>
+{% endif %}
 <!-- //card section -->
-  
-<section class="w3l-content-4 py-5" id="features">
-    <div class="content-4-main py-lg-5 py-md-4 py-2">
-        <div class="container">
-            <div class="content-info-in row align-items-center">
-                <div class="content-left col-lg-6">
-                    <div class="row content4-right-grids mb-sm-5 mb-4 pb-3">
-                        <div class="col-2 content4-right-icon">
-                            <div class="content4-icon icon-clr1">
-                                <span class="fa fa-envelope-open-o"></span>
-                            </div>
-                        </div>
-                        <div class="col-10 content4-right-info pl-lg-5">
-                            <h6><a href="#url">Email marketing services.</a></h6>
-                            <p>Lorem ipsum dolor sit amet, Ea consequuntur illum facere aperiam optio
-                                adipisicing.</p>
-                        </div>
-                    </div>
-                    <div class="row content4-right-grids mb-sm-5 mb-4 pb-3">
-                        <div class="col-2 content4-right-icon">
-                            <div class="content4-icon icon-clr2">
-                                <span class="fa fa-stack-exchange"></span>
-                            </div>
-                        </div>
-                        <div class="col-10 content4-right-info pl-lg-5">
-                            <h6><a href="#url"> Profitable AdWords campaigns.</a></h6>
-                            <p>Lorem ipsum dolor sit amet, Ea consequuntur illum facere aperiam optio
-                                adipisicing.</p>
-                        </div>
-                    </div>
-                    <div class="row content4-right-grids">
-                        <div class="col-2 content4-right-icon">
-                            <div class="content4-icon icon-clr3">
-                                <span class="fa fa-dollar"></span>
-                            </div>
-                        </div>
-                        <div class="col-10 content4-right-info pl-lg-5">
-                            <h6><a href="#url">Pay per click advertising.</a></h6>
-                            <p>Lorem ipsum dolor sit amet, Ea consequuntur illum facere aperiam optio
-                                adipisicing.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-right col-lg-6 mt-lg-0 mt-5">
-                    <img src="{% static 'images/about2.jpg' %}" alt="" class="img-responsive radius-image img-fluid" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- middle -->
+<!-- f_services-->
 <div class="middle py-5">
     <div class="container py-lg-5 py-md-4">
-      <div class="welcome-left text-center py-lg-3">
-        <h5 class="title-small">We are the best</h5>
-        <h3 class="title-big mb-4 mx-0 mw-100">Company has been giving best consultation to top USA’s Business companies since 1985.</h3>
-        <p class="pr-lg-5">Start working with us that can provide everything you need to generate awareness, 
-          drive traffic, connect with us. You can test free trail today.</p>
-        <div class="buttons mt-md-5 mt-4">
-          <a href="{% url 'contact' %}" class="btn btn-style btn-primary mr-sm-2 mr-1">Get Started now</a>
-          <a href="{% url 'contact' %}#map" class="btn btn-style btn-outline-primary ml-sm-2">Locate Us</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- //middle -->
-<div class="team-area py-5" id="people">
-    <div class="container py-lg-5 py-md-4 py-2">
-        <span class="title-small text-center"> Our People</span>
-        <h3 class="title-big text-center"> Explore Solutions</h3>
-        <div class="row mt-lg-5 mt-4">
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="single-team">
-                    <div class="img-area">
-                        <img src="{% static 'images/team1.png' %}" class="img-fluid radius-image" alt="">
-                        <div class="social">
-                            <ul class="list-inline">
-                                <li><a href="#url"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#url"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#url"><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="img-text">
-                        <h4>Daniel Roberto</h4>
-                        <p>Founder and CEO</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-xs-12 mt-sm-0 mt-5">
-                <div class="single-team">
-                    <div class="img-area">
-                        <img src="{% static 'images/team1.png' %}" class="img-fluid radius-image" alt="">
-                        <div class="social">
-                            <ul class="list-inline">
-                                <li><a href="#url"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#url"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#url"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="img-text">
-                        <h4>Richard Elison</h4>
-                        <p>Co Founder and COO</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-xs-12 mt-lg-0 mt-5">
-                <div class="single-team">
-                    <div class="img-area">
-                        <img src="{% static 'images/team1.png' %}" class="img-fluid radius-image" alt="">
-                        <div class="social">
-                            <ul class="list-inline">
-                                <li><a href="#url"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#url"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#url"><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="img-text">
-                        <h4>Elizabeth</h4>
-                        <p>HR Manager</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-xs-12 mt-lg-0 mt-5">
-                <div class="single-team">
-                    <div class="img-area">
-                        <img src="{% static 'images/team1.png' %}" class="img-fluid radius-image" alt="">
-                        <div class="social">
-                            <ul class="list-inline">
-                                <li><a href="#url"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#url"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#url"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="img-text">
-                        <h4>Robert Branson</h4>
-                        <p>Project Leader</p>
-                    </div>
-                </div>
+        <div class="welcome-left text-center py-lg-3">
+            <h5 class="title-small">We are the best</h5>
+            <h3 class="title-big mb-4 mx-0 mw-100">The Company has been giving best consultation to top Business companies since {{abt.date_founded|date:'Y'}}.</h3>
+            <div class="buttons mt-md-5 mt-4">
+                <a href="{% url 'contact' %}" class="btn btn-style btn-primary mr-sm-2 mr-1">Contact Us</a>
+                <a href="{% url 'contact' %}#gmap_canvas" class="btn btn-style btn-outline-primary ml-sm-2">Locate Us</a>
             </div>
         </div>
     </div>
 </div>
-  {% endblock %}
+<!-- //middle -->
+<div class="team-area py-5" id="people">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <span class="title-small text-center"> Our People</span>
+        <h3 class="title-big text-center">Management Team</h3>
+        <div class="row mt-lg-5 mt-4">
+            {% for t in tm %}
+            <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div class="single-team">
+                    <div class="img-area">
+                        {% if t.image %}
+                        <img src="{{t.image.url}}" class="img-fluid radius-image" alt=""> {% else %}
+                        <img src="{% static 'images/team1.png' %}" class="img-fluid radius-image" alt=""> {% endif %}
+                        <div class="social">
+                            <ul class="list-inline">
+                                <li><a href="{{t.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{t.tweeter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{t.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="img-text">
+                        <h4>{{t.name}}</h4>
+                        <p>{{t.rank}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
