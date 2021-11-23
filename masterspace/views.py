@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.db.models import Q
 from django.contrib import messages
 from .models import *
 import datetime
@@ -13,6 +14,12 @@ def home(request):
     {'cms':front_office,'cms_first':cms_first,
     'cm_image':cm_image,'qas':qas,
     })
+    
+def search(request):
+    query = request.GET.get('query', '')
+    service = Services.objects.filter(Q(title__icontains=query) | Q(overview__icontains=query) | Q(classification__icontains=query))
+
+    return render(request, 'search.html', {'service': service, 'query': query})    
 
 def services(request):
     return render(request,'services.html')

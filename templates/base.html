@@ -11,8 +11,7 @@
 
     <link href="//fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Template CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <!-- Template CSS -->
     <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
     <script src="{% static 'js/date.js' %}"></script>
 </head>
@@ -28,26 +27,13 @@
         <div class="container">
             <div class="top-header-2">
                 <div class="d-grid main-top">
-                    <div class="top-headers">
+                    <div class="top-headers expand-lg navbar-nav">
                         <ul class="left-info">
                             <li>
                                 <span class="fa fa-phone"></span><a href="tel:{{abt.phone}}">{{abt.phone}}</a>
                             </li>
                             <li class="">
-                                <a href="{% url 'home' %}#projects" class="d-md-block d-none">Help Center</a>
-                            </li>
-                            <li class="">
                                 <a href="mailto:{{abt.email}}" class="d-md-block d-none">{{abt.email}}</a>
-                            </li>
-                            <li class="">
-                                <h1>
-                                    <a href="https://masterspace.co.ke" class="d-md-block d-none" style="font-size:large;text-transform: uppercase;">
-                                        <span style="color: red;">Masterspace</span> <span style="color: green;">Solutions</span> <span style="color: rgb(255, 174, 0);">Ltd.</span>
-                                    </a>
-                                </h1>
-                            </li>
-                            <li class="">
-                                <a href="#now" class="d-md-block d-none">@{% now "Y" %}</a>
                             </li>
                         </ul>
                     </div>
@@ -120,8 +106,8 @@
                         <!-- search popup -->
                         <div id="search" class="pop-overlay">
                             <div class="popup">
-                                <form action="error.html" method="GET" class="d-flex">
-                                    <input type="search" placeholder="Search.." name="search" required="required" autofocus>
+                                <form action="{% url 'search' %}" method="GET" class="d-flex">
+                                    <input type="search" placeholder="Search.." name="query" required="required" autofocus>
                                     <button type="submit"><span class="fa fa-search"></span></button>
                                     <a class="close" href="#close">&times;</a>
                                 </form>
@@ -202,7 +188,7 @@
         <!-- copyright -->
         <section class="w3l-copyright text-center">
             <div class="container">
-                <p class="copy-footer-29">Copyright © {% now "Y" %} Masterspace Solutions. All rights reserved. Design by <a href="https://titusowuorportfolio.herokuapp.com/" target="_blank">
+                <p class="copy-footer-29">Copyright © {% now "Y" %} Masterspace Solutions Ltd. All rights reserved. Design by <a href="https://titusowuorportfolio.herokuapp.com/" target="_blank">
             Titus@MSS</a></p>
             </div>
 

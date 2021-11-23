@@ -24,6 +24,7 @@ from masterspace.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name='home'),
+    path('search/',search, name='search'),
     path('services/',services,name='services'),
     path('contact/',contact,name='contact'),
     path('about/',about,name='about'),
