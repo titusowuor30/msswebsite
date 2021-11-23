@@ -32,6 +32,12 @@ class Services(models.Model):
     image=models.ImageField(upload_to='uploads/services/',blank=True,null=True)
     icon=models.CharField(max_length=255)
 
+    def getImg(self):
+        if self.image:
+            return self.image.url
+        else:
+            return 'media/default.jpg' 
+
     def __str__(self):
         return self.title
 
@@ -85,6 +91,12 @@ class Partners(models.Model):
     description=models.TextField(max_length=500)
     snipet=models.ImageField(upload_to='uploads/patnership_snipets/',blank=True,null=True)
 
+    def getImg(self):
+        if self.snipet:
+            return self.logo.url
+        else:
+            return 'media/default.jpg' 
+
 
     def __str__(self):
             return self.title
@@ -132,6 +144,12 @@ class Team(models.Model):
     def __str__(self):
         return self.name
 
+    def getImg(self):
+        if self.image:
+            return self.image.url
+        else:
+            return 'media/default.jpg'      
+
     class Meta:
         verbose_name_plural='Teams & People'
 
@@ -140,6 +158,11 @@ class Clients(models.Model):
     website=models.URLField(max_length=500,default='example.com')
     logo=models.ImageField(upload_to='uploads/client_logos/')
 
+    def getImg(self):
+        if self.logo:
+            return self.logo.url
+        else:
+            return 'media/default.jpg'    
 
     def __str__(self):
         return self.logo.url
