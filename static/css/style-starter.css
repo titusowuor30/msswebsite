@@ -14036,7 +14036,7 @@ button.navbar-toggler.collapsed .icon-expand {
 
 .w3l-main-slider .banner-info-bg h6 {
     font-size: 36px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     color: #fff;
     font-weight: 100;
 }
@@ -14044,9 +14044,9 @@ button.navbar-toggler.collapsed .icon-expand {
 .w3l-main-slider .banner-info-bg h5 {
     color: #fff;
     font-size: 60px;
-    line-height: 70px;
+    line-height: 50px;
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .w3l-main-slider .banner-info-bg p {
@@ -14055,7 +14055,7 @@ button.navbar-toggler.collapsed .icon-expand {
 }
 
 .w3l-main-slider .banner-info-bg ul {
-    margin: 24px 0;
+    margin: 20px 0;
 }
 
 .w3l-main-slider .banner-info-bg span.fa {
@@ -14067,11 +14067,11 @@ button.navbar-toggler.collapsed .icon-expand {
 }
 
 .w3l-main-slider .banner-info-bg {
-    max-width: 850px;
+    max-width: 900px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 10px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .w3l-main-slider p.text-label {
@@ -14100,7 +14100,7 @@ button.navbar-toggler.collapsed .icon-expand {
 
 .w3l-main-slider .banner-view {
     background-size: cover;
-    min-height: calc(100vh - 140px);
+    min-height: calc(80vh - 90px);
     position: relative;
     z-index: 0;
     display: grid;

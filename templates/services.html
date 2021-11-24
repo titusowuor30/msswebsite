@@ -7,16 +7,16 @@
         </ul>
     </div>
     {% if allservices %}
-    <section class="w3l-bottom-grids-6 py-5" id="allservices">
-        <div class="container py-lg-5 py-md-4 py-2">
+    <section class="w3l-bottom-grids-6 py-3" id="allservices">
+        <div class="container py-lg-3 py-md-4 py-2">
             <h6 class="title-small text-center">Our Services </h6>
-            <h3 class="title-big mb-md-5 mb-4 text-center">Exclusive Services for our Clients.</h3>
+            <h4 class="title mb-md-5 mb-4 text-center">Exclusive Services for our Clients.</h4>
             <div class="grids-area-hny main-cont-wthree-fea row">
                 {% for service in allservices %}
                 <div class="col-lg-3 col-md-6 grids-feature mt-4">
                     <div class="area-box">
                         <span class="{{service.icon}}"></span>
-                        <h4><a class="title-head" href="{% url 'more' service.id %}">{{service.title}}</a></h4>
+                        <h4><a class="title-small" href="{% url 'more' service.id %}">{{service.title}}</a></h4>
                         <a class="read" href="{% url 'more' service.id %}">Read more &nbsp;<span
                             class="fa fa-arrow-right"></span></a>
                     </div>
