@@ -85,6 +85,11 @@
                             <li class="nav-item @@contact__active">
                                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                             </li>
+                            {% if request.user.is_staff %}
+                             <li class="nav-item @@contact__active">
+                                <a class="nav-link" href="/admin">Admin</a>
+                            </li>
+                            {% endif %}
                             <li class="nav-item @@contact__active">
                                 <a class="nav-link" style="color: rgb(255, 145, 0);" href="{% if abt.careers_url %} {{abt.careers_url}} {% else %} https://careers.masterspace.co.ke/ {% endif %}">Careers</a>
                             </li>
