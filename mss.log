@@ -1008,3 +1008,55 @@ ModuleNotFoundError: No module named 'applicationinsights'
 OSError: [Errno 22] Invalid argument
 2021-11-24 15:58:21.408849: Running on_exit tasks
 2021-11-24 15:58:21.408849: wfastcgi.py 3.0.0 closed
+2021-11-24 16:01:36.684349: Failed to import applicationinsights: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 639, in read_wsgi_handler
+    from applicationinsights.requests import WSGIApplication
+ModuleNotFoundError: No module named 'applicationinsights'
+2021-11-24 16:01:36.684349: wfastcgi.py will restart when files in C:\inetpub\wwwroot\msswebsite\ are changed: .*((\.py)|(\.config))$
+2021-11-24 16:01:36.685401: "port" is not a valid port number for debugging
+2021-11-24 16:01:36.685960: wfastcgi.py 3.0.0 initialized
+2021-11-24 16:11:31.002322: Unhandled exception in wfastcgi.py: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 774, in main
+    record = read_fastcgi_record(fcgi_stream)
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 158, in read_fastcgi_record
+    data = stream.read(8)     # read record
+OSError: [Errno 22] Invalid argument
+2021-11-24 16:11:31.003384: Running on_exit tasks
+2021-11-24 16:11:31.003938: wfastcgi.py 3.0.0 closed
+2021-11-24 16:13:20.620215: Failed to import applicationinsights: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 639, in read_wsgi_handler
+    from applicationinsights.requests import WSGIApplication
+ModuleNotFoundError: No module named 'applicationinsights'
+2021-11-24 16:13:20.621279: wfastcgi.py will restart when files in C:\inetpub\wwwroot\ are changed: .*((\.py)|(\.config))$
+2021-11-24 16:13:20.621279: "port" is not a valid port number for debugging
+2021-11-24 16:13:20.622328: wfastcgi.py 3.0.0 initialized
+2021-11-24 16:18:34.863338: Unhandled exception in wfastcgi.py: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 774, in main
+    record = read_fastcgi_record(fcgi_stream)
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 158, in read_fastcgi_record
+    data = stream.read(8)     # read record
+OSError: [Errno 22] Invalid argument
+2021-11-24 16:18:34.864388: Running on_exit tasks
+2021-11-24 16:18:34.864388: wfastcgi.py 3.0.0 closed
+2021-11-24 16:27:05.839218: Failed to import applicationinsights: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 639, in read_wsgi_handler
+    from applicationinsights.requests import WSGIApplication
+ModuleNotFoundError: No module named 'applicationinsights'
+2021-11-24 16:27:05.840258: wfastcgi.py will restart when files in C:\inetpub\wwwroot\msswebsite\ are changed: .*((\.py)|(\.config))$
+2021-11-24 16:27:05.841291: "port" is not a valid port number for debugging
+2021-11-24 16:27:05.841872: wfastcgi.py 3.0.0 initialized
+2021-11-24 16:38:45.049683: Unhandled exception in wfastcgi.py: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 774, in main
+    record = read_fastcgi_record(fcgi_stream)
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 158, in read_fastcgi_record
+    data = stream.read(8)     # read record
+OSError: [Errno 22] Invalid argument
+2021-11-24 16:38:45.051267: Running on_exit tasks
+2021-11-24 16:38:45.052301: wfastcgi.py 3.0.0 closed
+2021-11-24 16:39:14.171985: Failed to import applicationinsights: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 639, in read_wsgi_handler
+    from applicationinsights.requests import WSGIApplication
+ModuleNotFoundError: No module named 'applicationinsights'
+2021-11-24 16:39:14.173026: wfastcgi.py will restart when files in C:\inetpub\wwwroot\ are changed: .*((\.py)|(\.config))$
+2021-11-24 16:39:14.174085: "port" is not a valid port number for debugging
+2021-11-24 16:39:14.174085: wfastcgi.py 3.0.0 initialized
