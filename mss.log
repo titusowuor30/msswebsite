@@ -1120,3 +1120,48 @@ ModuleNotFoundError: No module named 'applicationinsights'
 2021-11-24 17:39:24.226313: wfastcgi.py will restart when files in C:\inetpub\wwwroot\msswebsite\ are changed: .*((\.py)|(\.config))$
 2021-11-24 17:39:24.227332: "port" is not a valid port number for debugging
 2021-11-24 17:39:24.228372: wfastcgi.py 3.0.0 initialized
+2021-11-24 17:48:43.555837: Unhandled exception in wfastcgi.py: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 774, in main
+    record = read_fastcgi_record(fcgi_stream)
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 158, in read_fastcgi_record
+    data = stream.read(8)     # read record
+OSError: [Errno 22] Invalid argument
+2021-11-24 17:48:43.556838: Running on_exit tasks
+2021-11-24 17:48:43.557432: wfastcgi.py 3.0.0 closed
+2021-11-24 17:52:08.730502: Failed to import applicationinsights: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 639, in read_wsgi_handler
+    from applicationinsights.requests import WSGIApplication
+ModuleNotFoundError: No module named 'applicationinsights'
+2021-11-24 17:52:08.730502: wfastcgi.py will restart when files in C:\inetpub\wwwroot\ are changed: .*((\.py)|(\.config))$
+2021-11-24 17:52:08.731540: "port" is not a valid port number for debugging
+2021-11-24 17:52:08.731540: wfastcgi.py 3.0.0 initialized
+2021-11-24 17:57:23.020712: Unhandled exception in wfastcgi.py: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 774, in main
+    record = read_fastcgi_record(fcgi_stream)
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 158, in read_fastcgi_record
+    data = stream.read(8)     # read record
+OSError: [Errno 22] Invalid argument
+2021-11-24 17:57:23.021750: Running on_exit tasks
+2021-11-24 17:57:23.022777: wfastcgi.py 3.0.0 closed
+2021-11-24 18:04:47.819248: Failed to import applicationinsights: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 639, in read_wsgi_handler
+    from applicationinsights.requests import WSGIApplication
+ModuleNotFoundError: No module named 'applicationinsights'
+2021-11-24 18:04:47.819248: wfastcgi.py will restart when files in C:\inetpub\wwwroot\msswebsite\ are changed: .*((\.py)|(\.config))$
+2021-11-24 18:04:47.820278: "port" is not a valid port number for debugging
+2021-11-24 18:04:47.821319: wfastcgi.py 3.0.0 initialized
+2021-11-24 18:10:37.122572: Unhandled exception in wfastcgi.py: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 774, in main
+    record = read_fastcgi_record(fcgi_stream)
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 158, in read_fastcgi_record
+    data = stream.read(8)     # read record
+OSError: [Errno 22] Invalid argument
+2021-11-24 18:10:37.123650: Running on_exit tasks
+2021-11-24 18:10:37.124702: wfastcgi.py 3.0.0 closed
+2021-11-24 18:12:02.077738: Failed to import applicationinsights: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 639, in read_wsgi_handler
+    from applicationinsights.requests import WSGIApplication
+ModuleNotFoundError: No module named 'applicationinsights'
+2021-11-24 18:12:02.078794: wfastcgi.py will restart when files in C:\inetpub\wwwroot\msswebsite\ are changed: .*((\.py)|(\.config))$
+2021-11-24 18:12:02.079366: "port" is not a valid port number for debugging
+2021-11-24 18:12:02.080394: wfastcgi.py 3.0.0 initialized
