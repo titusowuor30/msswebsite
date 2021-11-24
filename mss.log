@@ -1165,3 +1165,5 @@ ModuleNotFoundError: No module named 'applicationinsights'
 2021-11-24 18:12:02.078794: wfastcgi.py will restart when files in C:\inetpub\wwwroot\msswebsite\ are changed: .*((\.py)|(\.config))$
 2021-11-24 18:12:02.079366: "port" is not a valid port number for debugging
 2021-11-24 18:12:02.080394: wfastcgi.py 3.0.0 initialized
+2021-11-24 18:38:50.011150: wfastcgi.py exiting because mss_website\settings.py has changed, matching .*((\.py)|(\.config))$
+2021-11-24 18:38:50.012731: Running on_exit tasks
