@@ -8,9 +8,9 @@
                     <div class="banner-view banner-top1 bg bg2">
                         <div class="banner-info">
                             <div class="container">
-                                <div class="banner-info-bg">
-                                    <h6>{{cms_first.title}}</h6>
-                                    <h5>{{cms_first.overview}}</h5>
+                                <div class="banner-info">
+                                    <h5 style="font-size: medium;">{{cms_first.title}}</h6>
+                                    <h6 style="font-size: small;">{{cms_first.overview}}</h5>
                                     <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'more' cms_first.id %}"> Learn More</a>
                                 </div>
                             </div>
@@ -24,9 +24,9 @@
                     <div class="slider-info  banner-view banner-top1 bg bg2">
                         <div class="banner-info">
                             <div class="container">
-                                <div class="banner-info-bg">
-                                    <h6>{{cm.title}}</h6>
-                                    <h5>{{cm.overview}}</h5>
+                                <div class="banner-info">
+                                    <h5 style="font-size: medium;">{{cm.title}}</h6>
+                                    <h6 style="font-size: small;">{{cm.overview}}</h5>
                                     <p class="mt-md-4 mt-3">{{cm.short_description}}.</p>
                                     <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'more' cm.id %}"> Learn More</a>
                                 </div>
@@ -46,8 +46,8 @@
         <div class="container py-lg-5 py-md-3 py-2">
             <div class="row">
                 <div class="col-lg-6 mb-lg-0 mb-md-5 mb-5 align-self">
-                    <h3 class="title-big" style="color: lawngreen;">MSS Overview</h3>
-                    <h3 class="title mx-0">{{abt.overview}}</h3>
+                    <h3 class="title" style="color: lawngreen;">MSS Overview</h3>
+                    <h3 class="subtitle mx-0">{{abt.overview}}</h3>
                     <a href="{% url 'services' %}" class="btn btn-primary btn-style mt-md-5 mt-4 mr-2">Explore
                         features</a>
                     <a href="#about_mss" class="btn btn-outline-primary btn-style mt-md-5 mt-4"> View all</a>
@@ -67,7 +67,7 @@
 <div class="w3l-servicesblock2" id="services">
     <section id="grids5-block" class="py-5">
         <div class="container py-lg-5 py-md-4 py-2">
-            <h3 class="title-big text-center">Some of Our Digital IT Services</h3>
+            <h3 class="title text-center">Some of Our Digital IT Services</h3>
             <div class="row mt-lg-5 mt-4">
                 {% for n in n_services %}
                 <div class="col-lg-4 col-md-6 w-100" style="width: 50px;;">
@@ -94,7 +94,7 @@
     <div class="container py-lg-5 py-md-4 py-2">
         <div class="row ">
             <div class="col-lg-6 mx-auto">
-                <h3 class="title-big mb-md-5 mb-4 mw-100">We are here to IT Solution with 30 years of experience</h3>
+                <h3 class="title mb-md-5 mb-4 mw-100">We are here to IT Solution with 30 years of experience</h3>
                 <!--Horizontal Tab-->
                 <div id="parentHorizontalTab">
                     <ul class="resp-tabs-list hor_1 mb-2">
@@ -156,7 +156,7 @@
     <section id="grids5-block" class="py-5">
         {% if teams %}
         <div class="container py-lg-5 py-md-4 py-2">
-            <h3 class="title-big text-center">Our Team</h3>
+            <h3 class="title text-center">Our Team</h3>
             <div class="row mt-lg-5 mt-4">
                 {% for t in teams %}
                 <div class="col-lg-3 col-sm-6 col-xs-12">
@@ -194,7 +194,7 @@
             <div class="col-lg-7">
                 <div class="bottom-info">
                     <div class="header-section">
-                        <h3 class="title-big mx-0">Start improving your Business today! Contact Us</h3>
+                        <h3 class="subtitle mx-0">Start improving your Business today! Contact Us</h3>
                     </div>
                 </div>
             </div>
@@ -208,7 +208,7 @@
 <div class="w3l-news text-11" id="homeblog">
     <section id="grids5-block" class="py-5">
         <div class="container py-lg-5 py-md-4 py-2">
-            <h3 class="title-big text-center">MSS Core Values & Culture</h3>
+            <h3 class="subtitle text-center">MSS Core Values & Culture</h3>
             <div class="row mt-lg-5 mt-4 text11-content">
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
                     <div class="grids5-info">
@@ -268,7 +268,7 @@
 
 <!-- customers Section -->
 {% if cls %}
-<h1 class="my-3" style="margin: auto;text-align: center;">Our Clients</h1>
+<h3 class="my-3" style="margin: auto;text-align: center;">Our Clients</h1>
 <section class="w3l-customers py-md-5 py-4" id="clients">
     <div class="container">
         <div class="row">
