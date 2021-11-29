@@ -187,7 +187,7 @@
                             <a class="nav-link dropbtn" style="display:flex;">SERVICES<i class="fa fa-caret-down ml-2 mt-1 mb-2"></i></a>
                             <ul class="dropdown-content">
                               {% for c in service_classes %}
-                              <li class="nav-item">{{c.title}}
+                              <li class="nav-item" style="font-weight: bold;">{{c.title}}
                               {% for s in c.services.all %}
                                 <a class="subcontent" href="{% url 'more' s.id %}">{{s.title}}</a>
                                 {% endfor %}
