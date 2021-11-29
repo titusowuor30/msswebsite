@@ -1257,3 +1257,10 @@ OSError: [Errno 22] Invalid argument
 OSError: [Errno 22] Invalid argument
 2021-11-24 23:44:54.527548: Running on_exit tasks
 2021-11-24 23:44:54.528619: wfastcgi.py 3.0.0 closed
+2021-11-30 01:00:43.243301: Failed to import applicationinsights: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 639, in read_wsgi_handler
+    from applicationinsights.requests import WSGIApplication
+ModuleNotFoundError: No module named 'applicationinsights'
+2021-11-30 01:00:43.247475: wfastcgi.py will restart when files in C:\inetpub\wwwroot\msswebsite\ are changed: .*((\.py)|(\.config))$
+2021-11-30 01:00:43.250113: "port" is not a valid port number for debugging
+2021-11-30 01:00:43.251149: wfastcgi.py 3.0.0 initialized
