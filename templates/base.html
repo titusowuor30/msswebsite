@@ -1,24 +1,138 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>MSS|Masterspace Solutions</title>
-
-    <link href="//fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+<title>MSS|Masterspace Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <!-- Template CSS -->
-    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
-    <script src="{% static 'js/date.js' %}"></script>
-</head>
+<link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+<script src="{% static 'js/date.js' %}"></script>
+<style>
+.email{ 
+        transition: all .2s ease-in-out; 
+    }
+.email:hover { 
+    transform: scale(1.15);
+ }
+    
+.office_oop_container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.office_oop_centered {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+}
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+.subtitle{
+        font-size: 25px;
+        font-weight: bold;
+        color:#fff;
+    }
+.nav-item a{
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 300;
+    font-size: 14px;   
+}
+.accordion-item button span,accordion-conten p{
+     font-family: 'Catamaran', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+}
+.products-content p,ul li,ul li span{
+ font-family: 'Catamaran', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+}
+.nav-link{
+ font-family: 'Catamaran', sans-serif;
+    font-weight: 300;
+    font-size: 14px;   
+}
+.smodule{
+    font-family: 'Catamaran', sans-serif;
+       font-weight: 300;
+       font-size: 16px;   
+   }
+.mydropdown {
+    position: relative;
+    display: block;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 450px;
+    max-width: 900px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+   
+.dropdown-content li {
+    margin-left: 0px;
+    text-align: justify;
+    color: black;
+    margin-right:10px;
+    list-style: none;
+    font-weight: 300px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li a.subcontent {
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 300;
+    color: #200;
+    width: inherit;
+    overflow: auto;
+    text-align: justify;
+    margin: auto;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 100px;
+    padding: 8px 10px;
+    text-decoration: none;
+    line-height: 20px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #fdd;
+    margin-right:100px;
+    font-weight: 200px;
+}
+
+.mydropdown:hover .dropdown-content {
+    display: flex;
+     margin-right:100px;
+    flex-direction:row;
+}
+
+.mydropdown:hover .dropbtn {
+    background-color: #f3f3f3;
+}
+</style>
+</head>
 <body>
+
     <div class="center">
-        {% if messages %} {%for message in messages %}
+        {% if messages %} 
+        {% for message in messages %}
         <p>{{message}}</p>
         {% endfor %} {% endif %}
     </div>
@@ -36,21 +150,11 @@
                     </div>
                     <div class="top-headers">
                         <ul>
-                         <li>
-                                <a href="https://wa.me/{{abt.phone}}"><span class="fa fa-whatsapp"></span></a>
-                            </li>
-                             <li>
-                                <a href="linkedin.link_url"><span class="fa fa-linkedin"></span></a>
-                            </li>
+                             {% for link in social_links %}
                             <li>
-                                <a href="fb.link_url"><span class="fa fa-facebook"></span></a>
+                            <a href="{{link.link_url}}" target="_blank"><span class="{{link.icon}}" aria-hidden="true"></span></a>
                             </li>
-                            <li>
-                                <a href="insta.link_url"><span class="fa fa-instagram"></span></a>
-                            </li>
-                             <li>
-                                <a href="twit.link_url"><span class="fa fa-twitter"></span></a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -65,7 +169,7 @@
                     <h1>
                         <a class="navbar-brand" href="/">
                             <span class="">
-                      <img src="{% static 'images/logo.jpg' %}" width="90%" style="border-spacing: 2px;border: solid;border-color: rgb(12, 119, 155);background-origin: padding-box;border-radius:20%;border:rgb(118, 207, 236);" alt="MSS">
+                      <img src="{% static 'images/logo.jpg' %}" width="80%" style="border-spacing: 1px;" alt="MSS" class="ml-0">
                   </span>
                         </a>
                     </h1>
@@ -74,38 +178,46 @@
                   <span class="fa icon-close fa-times"></span>
               </button>
 
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="collapse navbar-collapse" id="navbarNav" style="margin-right:40px">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{% url 'home' %}">Home </a>
+                                <a class="nav-link" href="{% url 'home' %}">HOME </a>
+                            </li>
+                            <li class="nav-item mydropdown ml-0">
+                            <a class="nav-link dropbtn" style="display:flex;">SERVICES<i class="fa fa-caret-down ml-2 mt-1 mb-2"></i></a>
+                            <ul class="dropdown-content">
+                              {% for c in service_classes %}
+                              <li class="nav-item">{{c.title}}
+                              {% for s in c.services.all %}
+                                <a class="subcontent" href="{% url 'more' s.id %}">{{s.title}}</a>
+                                {% endfor %}
+                              </li>
+                              {% endfor %}
+                            </ul>
                             </li>
                             <li class="nav-item @@about__active">
-                                <a class="nav-link" href="{% url 'about' %}">About</a>
-                            </li>
-                            <li class="nav-item @@services__active">
-                                <a class="nav-link" href="{% url 'services' %}">Our Services</a>
+                                <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
                             </li>
                             <li class="nav-item @@contact__active">
-                                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                                <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+                            </li>
+                             <li class="nav-item @@contact__active">
+                                <a class="nav-link" href="{% url 'support_services' %}">SUPPORT</a>
                             </li>
                             {% if request.user.is_staff %}
                              <li class="nav-item @@contact__active" style="color: blueviolet;">
-                                <a class="nav-link" href="/admin">Admin</a>
+                                <a class="nav-link" href="/admin">ADMIN</a>
                             </li>
                             {% endif %}
                             <li class="nav-item @@contact__active">
-                                <a class="nav-link" style="color: rgb(255, 145, 0);" href="{% if abt.careers_url %} {{abt.careers_url}} {% else %} https://careers.masterspace.co.ke/ {% endif %}">Careers</a>
+                                <a class="nav-link" style="color: rgb(255, 145, 0);" href="{% if abt.careers_url %} {{abt.careers_url}} {% else %} https://careers.masterspace.co.ke/ {% endif %}">CAREERS</a>
                             </li>
-                        </ul>
-                        <ul class="navbar-nav search-right mt-lg-0 mt-2">
-                            <li class="nav-item mr-2" title="Search">
+                        <li class="navbar-nav search-right mt-lg-0 mt-2 ml-4">
+                            <div class="nav-item mr-2" title="Search">
                                 <a href="#search" class="btn search-search">
                                     <span class="fa fa-search" aria-hidden="true"></span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{% url 'home' %}" class="btn btn-primary d-none d-lg-block btn-style mr-3" style="background-color: rgb(7, 46, 122);">
-                                    <span style="color: black;">Dark</span>|<span style="color: white;">Light</span>|<span style="color: chartreuse;">Mode</span></a>
-                            </li>
+                            </div>
+                        </li>
                         </ul>
                         <!-- //toggle switch for light and dark theme -->
                         <!-- search popup -->
@@ -123,12 +235,15 @@
                     <!-- toggle switch for light and dark theme -->
                     <div class="mobile-position">
                         <nav class="navigation">
-                            <div class="theme-switch-wrapper">
-                                <label class="theme-switch" for="checkbox">
+                            <div class="theme-switch-wrapper mb-5 mt-0">
+                            <label class="theme-switch border-primary" for="checkbox">
                               <input type="checkbox" id="checkbox">
                               <div class="mode-container">
-                                  <i class="gg-sun"></i>
-                                  <i class="gg-moon"></i>
+                                <h6>Theme</h6>
+                                  <i class="gg-sun m-auto">
+                                  </i>
+                                  <i class="gg-moon m-auto">
+                                  </i>
                               </div>
                           </label>
                             </div>
@@ -146,45 +261,46 @@
         <div class="footer-29 py-5">
             <div class="container py-lg-4">
                 <div class="row footer-top-29">
-                    <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1 pr-lg-5">
+                   <div class="vl"></div>
+                    <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-1" style="border:none;">
                         <div class="footer-logo mb-4">
                             <a class="navbar-brand" href="/">
+                            <h6 class="footer-title-29 mt-2">MASTERSPACE SOLUTIONS LTD</h6>
                         <span class="">
                           <img src="{% static 'images/logo.jpg' %}" alt="">
                         </span> 
-                      <br> 
-                      MSS|Masterspace <br> Solutions Ltd.</a>
+                     </a>
                         </div>
                         <p>Tangible Results</p>
                         <div class="main-social-footer-29 mt-4">
-                            <a href="https://wa.me/{{abt.phone}}" target="_blank"><span class="fa fa-whatsapp-square" aria-hidden="true"></span></a>
-                            <a href="{{fb.link_url}}" target="_blank"><span class="fa fa-facebook-square" aria-hidden="true"></span></a>
-                            <a href="{{twit.link_url}}" target="_blank"><span class="fa fa-twitter-square" aria-hidden="true"></span></a>
-                            <a href="{{insta.link_url}}" target="_blank"><span class="fa fa-instagram" aria-hidden="true"></span></a>
-                            <a href="{{linkedin.link_url}}" target="_blank"><span class="fa fa-linkedin-square" aria-hidden="true"></span></a>
+                           {% for link in social_links %}
+                            <a href="{{link.link_url}}" target="_blank"><span class="{{link.icon}}" aria-hidden="true"></span></a>
+                            {% endfor %}
                         </div>
                     </div>
+                    <div class="vl"></div>
                     <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-2 mt-sm-0 mt-5">
-
                         <ul>
-                            <h6 class="footer-title-29">Navigation</h6>
+                            <h6 class="footer-title-29">SERVICES</h6>
                             <li><a href="{% url 'about' %}">About Us</a></li>
                             <li><a href="{% url 'home' %}#homeblog"> Blog posts</a></li>
-                            <li><a href="{% url 'services' %}">Services</a></li>
+                            <li><a href="{% url 'support_services' %}">Services</a></li>
                             <li><a href="{% url 'contact' %}">Contact us</a></li>
                             <li><a href="#components"> Components</a></li>
                         </ul>
                     </div>
+                    <div class="vl"></div>
                     <div class="col-lg-2 col-md-6 col-sm-5 col-6 footer-list-29 footer-3 mt-lg-0 mt-5">
-                        <h6 class="{% url 'services' %}">Resources</h6>
+                        <h6 class="footer-title-29" href="">ADDRESS</h6>
                         <ul>
                             <li><a href="{% url 'home' %}#homeblog">Core values & Culture</a></li>
                             <li><a href="{% url 'contact' %}#contact">Client support</a></li>
                         </ul>
 
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5">
-                        <h6 class="footer-title-29">Contact Info </h6>
+                    <div class="vl"></div>
+                    <div class="col-lg-2 col-md-6 col-sm-5 footer-list-29 footer-4 mt-lg-0 mt-5">
+                        <h6 class="footer-title-29">CONTACT INFO</h6>
                         <p>{{abt.location.floor}} {{abt.location.building}} {{abt.location.street}},<br>{{abt.location.city}}.</p>
                         <p class="mt-2">Phone : <a href="tel:{{abt.phone}}" target="_blank">{{abt.phone}}</a></p>
                         <p class="mt-2">Email : <a href="mailto:{{abt.email}}" target="_blank">{{abt.email}}</a></p>
@@ -387,6 +503,51 @@
                 }
             });
         });
+        //card js
+        $(document).ready(function(){
+  var zindex = 10;
+  
+  $("div.card").click(function(e){
+    e.preventDefault();
+
+    var isShowing = false;
+
+    if ($(this).hasClass("show")) {
+      isShowing = true
+    }
+
+    if ($("div.cards").hasClass("showing")) {
+      // a card is already in view
+      $("div.card.show")
+        .removeClass("show");
+
+      if (isShowing) {
+        // this card was showing - reset the grid
+        $("div.cards")
+          .removeClass("showing");
+      } else {
+        // this card isn't showing - get in with it
+        $(this)
+          .css({zIndex: zindex})
+          .addClass("show");
+
+      }
+
+      zindex++;
+
+    } else {
+      // no cards in view
+      $("div.cards")
+        .addClass("showing");
+      $(this)
+        .css({zIndex:zindex})
+        .addClass("show");
+
+      zindex++;
+    }
+    
+  });
+});
     </script>
     <!--//MENU-JS-->
 

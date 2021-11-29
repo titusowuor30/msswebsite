@@ -3,21 +3,6 @@
 <section class="w3l-main-slider" id="home">
     <div class="companies20-content">
         <div class="owl-one owl-carousel owl-theme">
-            <div class="item">
-                <li>
-                    <div class="banner-view banner-top1 bg bg2">
-                        <div class="banner-info-bg">
-                            <div class="container">
-                                <div class="banner-info">
-                                    <h6 style="font-size:30x;font-weight:bold;">{{cms_first.title}}</h6>
-                                    <h6>{{cms_first.overview}}</h5>
-                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'more' cms_first.id %}"> Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </div>
             {% for cm in cms %}
             <div class="item">
                 <li>
@@ -25,9 +10,8 @@
                         <div class="banner-info-bg">
                             <div class="container">
                                 <div class="banner-info">
-                                    <h5 style="font-size:30px;">{{cm.title}}</h6>
-                                    <h6 style="font-size:30px;">{{cm.overview}}</h5>
-                                    <p class="mt-md-4 mt-3">{{cm.short_description}}.</p>
+                                    <h5>{{cm.title}}</h5>
+                                    <h6>{{cm.overview}}</h6>
                                     <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'more' cm.id %}"> Learn More</a>
                                 </div>
                             </div>
@@ -40,49 +24,31 @@
     </div>
 </section>
 <!-- /main-slider -->
-<!-- about page about section -->
-<section class="w3l-aboutblock1" id="about">
-    <div class="midd-w3 py-5">
-        <div class="container py-lg-5 py-md-3 py-2">
-            <div class="row">
-                <div class="col-lg-6 mb-lg-0 mb-md-5 mb-5 align-self">
-                    <h3 class="title" style="color: lawngreen;">MSS Overview</h3>
-                    </h4 class="mx-0">{{abt.overview}}</h4>
-                    <a href="{% url 'services' %}" class="btn btn-primary btn-style mt-md-3 mt-2 mr-2">Explore
-                        features</a>
-                    <a href="#about_mss" class="btn btn-outline-primary btn-style mt-md-3 mt-2"> View all</a>
-                </div>
-                <div class="col-lg-6">
-                    <div class="position-relative">
-                        <img src="{% if cm_image %}{% static 'images/banner4.png' %}{% else %}{% static 'images/banner4.png' %}{% endif %}" alt="" class="radius-image img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- //about page about section -->
 <!--  services section -->
-{% if n_services %}
+{% if allservices %}
 <div class="w3l-servicesblock2" id="services">
     <section id="grids5-block" class="py-5">
-        <div class="container py-lg-5 py-md-4 py-2">
-            <h4 class="title text-center">Some of Our Digital IT Services</h4>
-            <div class="row mt-lg-5 mt-4">
-                {% for n in n_services %}
-                <div class="col-lg-4 col-md-6 text-center" style="height:100%;">
-                    <div class="grids5-info" style="background-color: rgb(133, 128, 128);">
-                        <div class="blog-info m-auto">
-                            <i class="{{n.icon}}"></i>
-                            <h5>
-                                <a href="{% url 'more' n.id %}">{{n.title}}
-                            </a>
-                                <p class="text-center">{{n.overview}}</p>
-                            </h5>
-                            <a class="m-auto" href="{% url 'more' n.id %}"><span></i><i class="fa fa-arrow-right" style="margin:auto;text-align:center;">View</i></span></a>
+        <div class="container py-lg-3 py-md-4 py-2 mt-0">
+        <div class="d-flex">
+            <hr /><h3 style="color:red;" class="m-title-left text-uppercase">OUR SERVICES</h3><hr />
+        </div>
+            <div class="row mt-lg-3 mt-0 text11-content" >
+                {% for service in allservices %}
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
+                    <div class="grids5-info">
+                        <a href="{% url 'more' service.id %}" class="blog-image d-block zoom"><img src="{{service.image.url}}" alt="" class="img-fluid news-image"  style="width:100%;height:80%;" />
+                            <div class="image-overlay">
+                                <span class="fa fa-hand-pointer-o" aria-hidden="true"></span>
+                            </div>
+                        </a>
+                        <div class="card-body blog-info">
+                            <h6 style="font-weight:bold;text-transform:uppercase;">{{service.title}}</h6>
+                            <h6 style="margin-bottom:25px;font-weight:200px;font-size:14px;">{{service.overview}}</h6>
+                            <a href="{% url 'more' service.id %}" class="btn btn-secondary btn-outline-dark mt-lg-0 mt-md-3 mt-1 mr-2" style="color: ivory;font-size:14px;">Learn More </a>
                         </div>
                     </div>
                 </div>
+                </a>
                 {% endfor %}
             </div>
         </div>
@@ -104,32 +70,32 @@
                     </ul>
                     <div class="resp-tabs-container hor_1" style="overflow: auto;">
                         <div class="products-content">
-                            <p style="text-align: justify;font-weight:bold;">{{abt.description}}</p>
+                            <p>{{abt.overview}}</p>
                         </div>
                         <div class="products-content">
                             <ul class="w3l-right-book mt-4">
-                                <li><span class="fa fa-check" aria-hidden="true"></span>{{abt.mission}}</li>
-                                <li><span class="fa fa-check" aria-hidden="true"></span>{{abt.vission}}</li>
+                                <li class="smodule"><span class="fa fa-check" aria-hidden="true"></span>{{abt.mission}}</li>
+                                <li class="smodule"><span class="fa fa-check" aria-hidden="true"></span>{{abt.vission}}</li>
                             </ul>
                         </div>
                         <div class="products-content">
                             <ul class="w3l-right-book mt-4">
-                                <li><span class="fa fa-check" aria-hidden="true"></span>Always Fast and friendly support
+                                <li class="smodule"><span class="fa fa-check" aria-hidden="true"></span>Always Fast and friendly support
                                 </li>
-                                <li><span class="fa fa-check" aria-hidden="true"></span>Experienced Professional Team
+                                <li class="smodule"><span class="fa fa-check" aria-hidden="true"></span>Experienced Professional Team
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 pr-lg-5 mt-lg-0 mt-sm-5 mt-4" id="help">
+            <div class="col-lg-6 pr-lg-5 mt-lg-0 mt-sm-5 mt-4 mb-0" id="help">
                 <div class="accordion">
                     <div class="accordion-item">
-                        <button id="accordion-button-1" aria-expanded="true"><span class="accordion-title">FAQ - Frequently Asked Questions?</span><span
-                                class="icon" aria-hidden="true"></span></button>
+                        <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title smodule">FAQ - Frequently Asked Questions?</span>
+                        <span class="icon" aria-hidden="true"></span></button>
                         <div class="accordion-content">
-                            <p>Learn more about who we are and get quick tips from our FAQs</p>
+                            <p class="smodule">Learn more about who we are and get quick tips from our FAQs</p>
                         </div>
                     </div>
                     {% for q in qas %}
@@ -150,119 +116,15 @@
     </div>
     </div>
 </section>
-<!--  services section -->
-<div class="w3l-servicesblock2" id="process">
-    <section id="grids5-block" class="py-3">
-        {% if teams %}
-        <div class="container py-lg-3 py-md-4 py-2">
-            <h3 class="title text-center">Our Team</h3>
-            <div class="row mt-lg-5 mt-4">
-                {% for t in teams %}
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="single-team">
-                        <div class="img-area">
-                            {% if t.image %}
-                            <img src="{{t.getImg}}" class="img-fluid radius-image" alt="" style="width: 100%;">
-                             {% else %}
-                            <img src="{% static 'images/team1.png' %}" class="img-fluid radius-image" alt="">
-                             {% endif %}
-                            <div class="social">
-                                <ul class="list-inline">
-                                    <li><a href="{{t.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="{{t.tweeter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="{{t.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="img-text">
-                            <h4>{{t.name}}</h4>
-                            <p>{{t.rank}}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-    </section>
-</div>
-<!--  //services section -->
 <section class="w3l-bottom1 py-3">
-    <div class="container py-md-5 py-sm-4 py-2">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="bottom-info">
-                    <div class="header-section">
-                        <h3 class="subtitle mx-0">Start improving your Business today! Contact Us</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 align-self text-lg-right">
-                <a href="{% url 'about' %}" class="btn btn-secondary btn-outline-dark mt-lg-0 mt-md-5 mt-4 mr-2" style="color: ivory;">Learn More </a>
-                <a href="{% url 'contact' %}" class="btn btn-style btn-primary mt-lg-0 mt-md-5 mt-2">Contact us</a>
-            </div>
+    <div class="office_oop_container">
+        <img src="../static/images/office_oop.jpg" alt="Snow" style="width:100%;height:500px">
+        <div class="office_oop_centered">
+                <h3 class="subtitle">Start improving your Business today! Contact Us</h3>
+                <a href="{% url 'contact' %}" class="btn btn-style btn-primary mt-lg-0 mt-md-3 mt-0 ">Contact us</a>
         </div>
+    </div>     
 </section>
-<!--  News section -->
-<div class="w3l-news text-11" id="homeblog">
-    <section id="grids5-block" class="py-3">
-        <div class="container py-lg-3 py-md-2 py-2">
-            <h3 class="subtitle text-center">MSS Core Values & Culture</h3>
-            <div class="row mt-lg-3 mt-0 text11-content">
-                <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-2">
-                    <div class="grids5-info">
-                        <a href="#blog-single" class="blog-image d-block zoom"><img src="{% static 'images/banner1.jpg' %}" alt="" class="img-fluid news-image" />
-                            <div class="image-overlay">
-                                <span class="fa fa-plus"></span>
-                            </div>
-                        </a>
-                        <div class="blog-info card-body blog-details mw-100" style="height:100%;">
-                            <a href="#category" class="title">Mission</a>
-
-                            <a href="#blog-single" class="post" style="color:yellow;">{{abt.mission}}</a>
-                            <a href="/about/" class="read">Read more <span
-                                    class="fa fa-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
-                    <div class="grids5-info">
-                        <a href="#blog-single" class="blog-image d-block zoom"><img src="{% static 'images/banner1.jpg' %}" alt="" class="img-fluid news-image" />
-                            <div class="image-overlay">
-                                <span class="fa fa-plus"></span>
-                            </div>
-                        </a>
-                        <div class="blog-info card-body blog-details" style="height:100%;"> 
-                            <a href="#category" class="title">Vission</a>
-
-                            <a href="#blog-single" class="post" style="color:gold;">{{abt.vission}}</a>
-                            <a href="/about/" class="read">Read more <span
-                                    class="fa fa-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
-                    <div class="grids5-info">
-                        <a href="#blog-single" class="blog-image d-block zoom"><img src="{% static 'images/banner1.jpg' %}" alt="" class="img-fluid news-image" />
-                            <div class="image-overlay">
-                                <span class="fa fa-plus"></span>
-                            </div>
-                        </a>
-                        <div class="blog-info card-body blog-details" style="height:100%;">
-                            <a href="#category" class="title">Core Values</a>
-
-                            <a href="#blog-single" class="post" style="color:orange;">{{abt.objectives}}</a>
-                            <a href="/about/" class="read">Read more <span
-                                    class="fa fa-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-<!--  //News section -->
-
 <!-- customers Section -->
 {% if cls %}
 <h3 class="my-3" style="margin: auto;text-align: center;">Our Clients</h1>

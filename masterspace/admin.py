@@ -14,21 +14,20 @@ class LocationAdmin(admin.ModelAdmin):
 admin.site.register(Location,LocationAdmin)
 
 class SocialAdmin(admin.ModelAdmin):
-    list_display=['link_url']
+    list_display=['link_url','icon',]
     search_fields=['link_url']
 admin.site.register(Social_links,SocialAdmin)
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display=['title','classification']
-    search_fields=['title','classification']
+    list_display=['title',]
+    search_fields=['title',]
 admin.site.register(Services,ServiceAdmin)
 
 
-class TeamAdmin(admin.ModelAdmin):
-    list_display=['name','rank','contact','image']
-    search_fields=['name','rank','contact']
-admin.site.register(Team,TeamAdmin)
-
+class ServiceClassAdmin(admin.ModelAdmin):
+    list_display=['title',]
+    search_fields=['title',]
+admin.site.register(Service_Classification,ServiceClassAdmin)
 
 class ClientsAdmin(admin.ModelAdmin):
     list_display=['organisation_name','logo']
@@ -50,6 +49,9 @@ class SvModulesAdmin(admin.ModelAdmin):
     list_display=['module_title','module_subtitle','module_content']
 admin.site.register(Service_modules,SvModulesAdmin)
 
-class MessagesAdmin(admin.ModelAdmin):
-    list_display=['name','email','phone','message']
-admin.site.register(Messages,MessagesAdmin)
+
+class CoreValuesAdmin(admin.ModelAdmin):
+    list_display=['title','content',]
+    search_fields=['title','content',]
+admin.site.register(CoreValues,CoreValuesAdmin)
+

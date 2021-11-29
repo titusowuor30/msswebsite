@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*!
+/*
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
@@ -4812,18 +4812,25 @@ input[type="button"].btn-block {
 }
 
 .card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1.25rem;
+    line-height: 10px;
+    padding: 1rem;
 }
 
 .card-title {
     margin-bottom: 0.75rem;
+    font-family: 'Catamaran', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 200;
+    font-size: 16px;
 }
 
 .card-subtitle {
-    margin-top: -0.375rem;
-    margin-bottom: 0;
+    font-size: 14px;
+    font-family: 'Catamaran', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 10px;
+    margin-bottom: 10px;
+    font-weight: 100;
 }
 
 .card-text:last-child {
@@ -15059,6 +15066,7 @@ ul.info-ul li {
 .blog-image {
     position: relative;
     overflow: hidden;
+    max-height: 50px;
 }
 
 .grids5-info:hover .image-overlay {
@@ -17218,12 +17226,18 @@ ul.blog-cat li a span.fa {
 }
 
 @media (max-width: 992px) {
+    hr {
+        width: 10%;
+    }
     .sidebar-widget {
         margin-bottom: 30px;
     }
 }
 
 @media (max-width: 384px) {
+    hr {
+        width: 10%;
+    }
     .sidebar-widget {
         padding: 30px 20px;
     }
@@ -17325,6 +17339,9 @@ ul.blog-cat li a span.fa {
 }
 
 @media screen and (max-width: 768px) {
+    hr {
+        width: 10%;
+    }
     .w3l-contacts-12 .cont-main-top {
         grid-template-columns: 1fr;
     }
@@ -17345,6 +17362,9 @@ ul.blog-cat li a span.fa {
     .w3l-contacts-12 .map iframe {
         height: 300px;
     }
+    hr {
+        width: 10%;
+    }
 }
 
 @media screen and (max-width: 415px) {
@@ -17352,6 +17372,9 @@ ul.blog-cat li a span.fa {
         grid-template-columns: 1fr;
         grid-gap: 15px;
         margin-bottom: 1rem;
+    }
+    hr {
+        width: 10%;
     }
     .w3l-contacts-12 textarea {
         margin: 1rem 0 1.5rem;
@@ -17370,8 +17393,54 @@ ul.blog-cat li a span.fa {
     }
 }
 
+@media all and (max-width: 1280px) {
+    .w3l-news .d-grid {
+        grid-gap: 15px;
+    }
+}
 
-/* //contact section */
+@media all and (max-width: 1080px) {
+    .w3l-news .d-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
+@media all and (max-width: 800px) {
+    .w3l-news .d-grid {
+        grid-gap: 30px;
+    }
+}
 
-/*# sourceMappingURL=style-starter.css.map */
+@media all and (max-width: 768px) {
+    .w3l-news .grids5-info h4 a {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+@media all and (max-width: 668px) {
+    .w3l-news .d-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media all and (max-width: 568px) {
+    hr {
+        width: 10%;
+    }
+    .w3l-news .d-grid {
+        grid-template-columns: 1fr;
+    }
+    .w3l-news .grids5-info p {
+        margin-top: 12px;
+    }
+}
+
+@media all and (max-width: 414px) {
+    hr {
+        width: 10%;
+    }
+    .w3l-news .grids5-info h4 a {
+        font-size: 20px;
+    }
+}

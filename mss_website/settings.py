@@ -70,7 +70,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'masterspace.context_processors.contact',
                 'masterspace.context_processors.services',
-                'masterspace.context_processors.team',
                 'masterspace.context_processors.clients',
             ],
         },
@@ -89,7 +88,15 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mss',
+        'HOST':'localhost',
+        'USER':'root',
+        'PASWWORD':'',
+    }
+}"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

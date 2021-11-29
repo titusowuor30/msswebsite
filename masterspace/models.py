@@ -22,14 +22,23 @@ class Service_modules(models.Model):
             return self.module_title
 
     class Meta:
-        verbose_name_plural='Service Modules'  
+        verbose_name_plural='Service Modules' 
+
+class Service_Classification(models.Model):
+    title=models.CharField(max_length=255)  
+    overview=models.TextField(max_length=500,default="classicficatio description") 
+    def __str__(self):
+            return self.title
+
+    class Meta:
+        verbose_name_plural='Service Classification'      
 
 class Services(models.Model):
     title=models.CharField(max_length=100)
     overview=models.TextField(max_length=255,default='Service short description here...')
     Service_modules=models.ManyToManyField('Service_modules',blank=True,null=True)
-    classification=models.CharField(choices=(('Featured','Featured'),('Core','Core'),('New','New')),default='Featured',max_length=20)
-    image=models.ImageField(upload_to='uploads/services/',blank=True,null=True)
+    classification=models.ForeignKey('Service_Classification',on_delete=models.CASCADE,related_name='services',blank=True,null=True)
+    image=models.ImageField(upload_to='uploads/services/',blank=True,null=True,default='media/default.jpg')
     icon=models.CharField(max_length=255)
 
     def getImg(self):
@@ -57,7 +66,8 @@ class Location(models.Model):
         verbose_name_plural='Our Location'     
 
 class Social_links(models.Model):
-    link_url=models.URLField(max_length=255,default='facebook.com')
+    link_url=models.URLField(max_length=255,default='https://facebook.com')
+    icon=models.CharField(max_length=50,help_text='use font awesome icons e.g fas fa-tweeter or fa fa-facebook',blank=True,null=True)
     
     def __str__(self):
         return self.link_url
@@ -67,10 +77,8 @@ class Social_links(models.Model):
 
 class About(models.Model):
     overview=models.TextField(max_length=500)
-    description=models.TextField(max_length=1500)
     vission=models.TextField(max_length=255)
     mission=models.TextField(max_length=255)
-    objectives=models.TextField(max_length=255,help_text='MSS Core values')
     date_founded=models.DateField(blank=True,null=True)
     location=models.ForeignKey('Location',on_delete=models.CASCADE)
     email=models.EmailField(default='info@masterspace.co.ke')
@@ -78,12 +86,32 @@ class About(models.Model):
     social_links=models.ManyToManyField('Social_links')
     careers_url=models.URLField(max_length=255,default='https://careers.masterspace.co.ke/')
 
-
     def __str__(self):
         return self.overview
 
     class Meta:
         verbose_name_plural='About MSS & Contacts'  
+        
+        
+class CoreValues(models.Model):
+    image=models.ImageField(max_length=255,blank=True,null=True)
+    title=models.CharField(max_length=255,blank=True,default='title')
+    content=models.CharField(max_length=255,default='content')
+    
+    
+    def __str__(self):
+        return self.title
+    
+    def getImg(self):
+        if self.image:
+            return self.image.url
+        else:
+            return 'media/default.jpg'
+
+    class Meta:
+        verbose_name_plural='Core Values'  
+    
+            
 
 class Partners(models.Model):
     title=models.CharField(max_length=100)
@@ -131,28 +159,6 @@ class FAQs(models.Model):
     class Meta:
         verbose_name_plural='FAQs & QAs'    
 
-class Team(models.Model):
-    name=models.CharField(max_length=100)
-    rank=models.CharField(max_length=100,help_text='Job title e.g CEO,COO,CTO,Director,HR Director') 
-    bod_status=models.BooleanField(default=False,help_text='Board member or management team official?')
-    contact=models.CharField(max_length=100)
-    image=models.ImageField(upload_to='uploads/teams/',blank=True,null=True)
-    facebook=models.URLField(max_length=255)
-    tweeter=models.URLField(max_length=255)
-    linkedin=models.URLField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-    def getImg(self):
-        if self.image:
-            return self.image.url
-        else:
-            return 'media/default.jpg'      
-
-    class Meta:
-        verbose_name_plural='Teams & People'
-
 class Clients(models.Model):
     organisation_name=models.CharField(max_length=100)
     website=models.URLField(max_length=500,default='example.com')
@@ -171,17 +177,6 @@ class Clients(models.Model):
         verbose_name_plural='Organisations & Clients' 
 
 
-class Messages(models.Model):
-    name=models.CharField(max_length=100)
-    email=models.EmailField(max_length=100)
-    phone=models.CharField(max_length=15)
-    message=models.TextField(max_length=500)
-
-    def __str__(self):
-        return f"Message from {self.name}"
-
-    class Meta:
-        verbose_name_plural='Messages'
 
 
 

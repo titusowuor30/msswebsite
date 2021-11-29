@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section">
+<div class="mail d-flex w3l-content-4 m-lg-5">
+	<div class="container flex-grow-0s m-2 p-2">
+		<hr />
+		<h1 class="title-big">Send us your requests</h1>
+		<hr />
+	</div>
+	<div class="container float-right flex-grow-1 border m-2 p-2 email">
+		<div class="container m-4">
+			<p class="text-11">Send us your Request Mail. Let Subject be the Request.</p>
+			<br />
+			<div class="email border-info m-2 p-4 text-center d-inline" style="border: solid 2px green;border-radius:10%;">
+				<a href="mailto:{{abt.email}}" class="ml-lg-3">{{abt.email}}
+				<span class="fa fa-paper-plane-o ml-lg-3 fa-2x"></span>
+			</a>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

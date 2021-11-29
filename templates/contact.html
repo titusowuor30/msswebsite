@@ -12,51 +12,39 @@
     <div class="contact-top pt-5">
         <div class="container py-lg-4">
             <div class="title-heading-w3 text-center mx-auto">
-                <h3 class="title">Get In Touch</h3>
+                <h3 class="c-title">Contact Us</h3>
             </div>
             <div class="d-grid cont-main-top mt-lg-5 mt-4">
-                <!-- contact form -->
+                <!-- contact dialer -->
                 <div class="contacts12-main">
-                    <form action="{% url 'message' %}" method="post" class="main-input">
-                        {% csrf_token %}
-                        <div class="top-inputs d-grid">
-                            <input type="text" placeholder="Name" name="name" id="w3lName" required="">
-                            <input type="email" name="email" placeholder="Email" id="w3lSender" required="">
-                        </div>
-                        <input type="text" placeholder="Phone Number" pattern="[0-9,+]{3}{3{3}" name="phone" id="w3lName" required="">
-                        <textarea placeholder="Message" name="message" id="w3lMessage" required=""></textarea>
-                        <div class="text-right">
-                            <button type="submit" class="btn btn-primary btn-style">Submit Now</button>
-                        </div>
-                    </form>
+                    <img src="{% static 'images/phone-dialer.jpg' %}" width="100%" height="350px" />
                 </div>
-                <!-- //contact form -->
+                <!-- //contact dialer -->
                 <!-- contact address -->
                 <div class="contact">
+                 <h3 class="contact-title">Quick Contacts</h3>
                     <div class="cont-subs">
                         <div class="cont-add">
-                            <h4>Location:</h4>
-                            <p class="contact-text-sub">{{abt.location.floor}} {{abt.location.building}} {{abt.location.street}} - {{abt.location.city}}.</p>
+                            <h4 >Location:</h4>
+                            <p class="contact-text-sub contact-title">{{abt.location.floor}} {{abt.location.building}} {{abt.location.street}} - {{abt.location.city}}.</p>
                         </div>
                         <div class="cont-add">
                             <h4>Email Address:</h4>
                             <a href="mailto:info@masterspace.co.ke">
-                                <p class="contact-text-sub">{{abt.email}}</p>
+                                <p class="contact-text-sub contact-title">{{abt.email}}</p>
                             </a>
                         </div>
                         <div class="cont-add">
                             <h4>Phone Number:</h4>
                             <a href="tel:{{abt.phone}}">
-                                <p class="contact-text-sub">{{abt.phone}}</p>
+                                <p class="contact-text-sub contact-title">{{abt.phone}}</p>
                             </a>
                         </div>
                         <div class="social-icons-con">
                             <h4 class="mb-3">Connect with us:</h4>
-                            <a href="https://wa.me/{{abt.phone}}" target="_blank"><span class="fab fa-whatsapp-square fa-3x" aria-hidden="true"></span></a>
-                            <a href="{{fb.link_url}}" target="_blank"><span class="fa fa-facebook-square" aria-hidden="true"></span></a>
-                            <a href="{{twit.link_url}}" target="_blank"><span class="fa fa-twitter-square" aria-hidden="true"></span></a>
-                            <a href="{{insta.link_url}}" target="_blank"><span class="fa fa-instagram" aria-hidden="true"></span></a>
-                            <a href="{{linkedin.link_url}}" target="_blank"><span class="fa fa-linkedin-square" aria-hidden="true"></span></a>
+                            {% for link in social_links %}
+                            <a href="{{link.link_url}}" target="_blank"><span class="{{link.icon}}" aria-hidden="true"></span></a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -64,27 +52,25 @@
             </div>
         </div>
         <!-- map -->
-        <div class="mapouter" id="map" style="margin:auto;">
-            <h3 class="title" style="margin:auto;text-align:center;">Get Quick Directions</h3>
-            <div class="gmap_canvas">
-                <iframe width="1080" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={{abt.location.floor|truncatechars:3}}%20Floor%20{{abt.location.building}}%20{{abt.location.street}}&t=k&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
-                    marginheight="0" marginwidth="0"></iframe>
-                <a href="https://masterspace.co.ke">MSS</a><br>
+        <div class="mapouter mr-lg-5" id="map">
+            <h3 class="c-title">Get Quick Directions</h3>
+            <div class="gmap_canvas m-2">
+                <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={{abt.location.floor|truncatechars:3}}%20Floor%20{{abt.location.building}}%20{{abt.location.street}}&t=k&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
+                    marginheight="5px" marginwidth="5px"></iframe>
                 <style>
                     .mapouter {
                         position: relative;
-                        text-align: right;
+                        text-align: center;
                         height: 500px;
-                        width: 1080px;
+                         width: 100%;
+                        overflow:hidden;
                     }
-                </style>
-                <a href="https://www.embedgooglemap.net">embed a google map</a>
-                <style>
                     .gmap_canvas {
                         overflow: hidden;
                         background: none!important;
                         height: 500px;
                         width: 100%;
+                         overflow:hidden;
                     }
                 </style>
             </div>
@@ -94,3 +80,5 @@
 </section>
 <!-- //contact -->
 {% endblock %}
+
+

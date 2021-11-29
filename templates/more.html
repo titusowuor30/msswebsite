@@ -9,24 +9,24 @@
 </section>
 <!-- about section -->
 <section class="w3l-text-6 py-5" id="about">
-    <h1 class="title-big text-center m-auto">{{service.title}}</h1>
+    <h3 class="title text-center m-auto text-uppercase">{{service.title}}</h3>
     <div class="text-6-mian py-lg-5 py-md-4">
         <div class="container">
-            <div class="row top-cont-grid align-items-center">
-                <div class="col-lg-6 left-img pr-lg-4">
+            <div class="row m-lg-4">
+                <div class="ml-2">
                     {% if service.image %}
-                    <img src="{{service.image.url}}" alt="" class="img-responsive radius-image img-fluid" /> {% else %}
+                    <img src="{{service.image.url}}" alt="" class="img-responsive" width="100%" /> {% else %}
                     <img src="{% static 'images/about1.jpg' %}" alt="" class="img-responsive radius-image img-fluid" /> {% endif %}
                 </div>
-                <div class="col-lg-6 text-6-info mt-lg-0 mt-md-5 mt-4">
-                    <h3 class="title mw-100">{{service.overview}}</p>
-                </div><br>
+                <div class="m-2">
+                    <p class="smodule">{{service.overview}}</p>
+                </div>
                 <div style="text-align: justify;font-weight:bold;margin:10px" id="desc">
                     {% for s in service.Service_modules.all %}
                     <br>
-                    <h3 class="title m-auto" style="margin-top:20px;margin-bottom:0px;">{{s.module_title}}</h3>
+                    <h3 class="title m-auto text-uppercase" style="margin-top:20px;margin-bottom:0px;">{{s.module_title}}</h3>
                     <h4 class="my-3">{{s.module_subtitle}}</h4>
-                    <p>{{s.module_content}}</p>
+                    <p class="smodule">{{s.module_content}}</p>
                     {% endfor %}
                 </div>
             </div>

@@ -7,22 +7,22 @@ import datetime
 # Create your views here.
 def home(request):
     qas=FAQs.objects.all()
-    cms_first=Services.objects.all().first()
-    front_office=Services.objects.all()[1:]
-    cm_image=cms_first.image.url
+    front_office=Services.objects.all()
     return render(request,'index.html',
-    {'cms':front_office,'cms_first':cms_first,
-    'cm_image':cm_image,'qas':qas,
-    })
+    {'cms':front_office,'qas':qas,})
     
 def search(request):
     query = request.GET.get('query', '')
-    service = Services.objects.filter(Q(title__icontains=query) | Q(overview__icontains=query) | Q(classification__icontains=query))
+    service = Services.objects.filter(Q(title__icontains=query) | Q(overview__icontains=query) | Q(classification__title__icontains=query))
 
     return render(request, 'search.html', {'service': service, 'query': query})    
 
-def services(request):
-    return render(request,'services.html')
+def support_services(request):
+    return render(request,'support.html')
+
+
+def request_service(request):
+    return render(request,'request.html')
 
 def more(request,id):
     service=Services.objects.get(pk=id)

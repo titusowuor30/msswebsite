@@ -3,24 +3,14 @@ from django.db.models import Q
 
 def contact(request):
     about=About.objects.all().first()
-    about_fb=Social_links.objects.get(Q(link_url__icontains='facebook'))
-    about_tweeter=Social_links.objects.get(Q(link_url__icontains='tweeter'))
-    about_in=Social_links.objects.get(Q(link_url__icontains='linkedin'))
-    about_insta=Social_links.objects.get(Q(link_url__icontains='instagram') | Q(link_url__icontains='insta'))
+    corevalues=CoreValues.objects.all()
+    social_links=Social_links.objects.all()
     context={
-        'fb':about_fb,
-        'twit':about_tweeter,
-        'linkedin':about_in,
-        'insta':about_insta,
-        'abt':about
+        'abt':about,
+        'corevalues':corevalues,
+        'social_links':social_links,
     }
-    print(about_fb)
     return context
-
-def team(request):
-    management=Team.objects.all().filter(bod_status=True)
-    teams=Team.objects.all()
-    return {'tm':management,'teams':teams}    
 
 def clients(request):
     cls=Clients.objects.all()
@@ -28,15 +18,11 @@ def clients(request):
 
 def services(request):
     allservices=Services.objects.all()
-    f_services=Services.objects.all().filter(classification='Featured')[:3]
-    c_services=Services.objects.all().filter(classification='Core')[:3]
-    n_services=Services.objects.all().filter(classification='New')[:3]
+    service_classes=Service_Classification.objects.all()
      
     context={
         'allservices':allservices,
-        'f_services':f_services,
-        'c_services':c_services,
-        'n_services':n_services
+        'service_classes':service_classes,
     } 
 
     return context
