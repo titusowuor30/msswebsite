@@ -95,6 +95,7 @@ else:
             'NAME': 'mss_website',
             'HOST':'localhost',
             'USER':'root',
+            'PORT':'3307',
             'PASWWORD':'',
         }
     }
