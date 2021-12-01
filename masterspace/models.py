@@ -94,7 +94,7 @@ class About(models.Model):
         
         
 class CoreValues(models.Model):
-    image=models.ImageField(max_length=255,blank=True,null=True)
+    image=models.ImageField(upload_to="uploads/corevalues/",default='media/default.jpg',blank=True,null=True)
     title=models.CharField(max_length=255,blank=True,default='title')
     content=models.CharField(max_length=255,default='content')
     
