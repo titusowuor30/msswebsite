@@ -24,8 +24,8 @@
                 <div style="text-align: justify;font-weight:bold;margin:10px" id="desc">
                     {% for s in service.Service_modules.all %}
                     <br>
-                    <h3 class="title m-auto text-uppercase" style="margin-top:20px;margin-bottom:0px;">{{s.module_title}}</h3>
-                    <h4 class="my-3">{{s.module_subtitle}}</h4>
+                    <h6 class="title m-auto text-uppercase" style="margin-top:20px;margin-bottom:0px;">{{s.module_title}}</h6>
+                    <p class="my-3" style="font-weight: bold;">{{s.module_subtitle}}</p>
                     <p class="smodule">{{s.module_content}}</p>
                     {% endfor %}
                 </div>
