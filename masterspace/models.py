@@ -15,7 +15,7 @@ from django.db import models
 
 class Service_modules(models.Model):
     module_title=models.CharField(max_length=100,default='module #2')
-    module_subtitle=models.CharField(max_length=255,default='module #2 subtile')
+    module_subtitle=models.CharField(max_length=255,blank=True,null=True)
     module_content=models.TextField(max_length=1500,default='module #2 content')
     
     def __str__(self):
@@ -26,7 +26,7 @@ class Service_modules(models.Model):
 
 class Service_Classification(models.Model):
     title=models.CharField(max_length=255)  
-    overview=models.TextField(max_length=500,default="classicficatio description") 
+    overview=models.TextField(max_length=500,blank=True,null=True) 
     def __str__(self):
             return self.title
 
@@ -39,7 +39,6 @@ class Services(models.Model):
     Service_modules=models.ManyToManyField('Service_modules',blank=True,null=True)
     classification=models.ForeignKey('Service_Classification',on_delete=models.CASCADE,related_name='services',blank=True,null=True)
     image=models.ImageField(upload_to='uploads/services/',blank=True,null=True,default='media/default.jpg')
-    icon=models.CharField(max_length=255)
 
     def getImg(self):
         if self.image:

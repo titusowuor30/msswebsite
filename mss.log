@@ -560,3 +560,11 @@ ModuleNotFoundError: No module named 'applicationinsights'
 OSError: [Errno 22] Invalid argument
 2021-12-01 20:50:11.548514: Running on_exit tasks
 2021-12-01 20:50:11.548514: wfastcgi.py 3.0.0 closed
+2021-12-01 21:25:15.487004: Unhandled exception in wfastcgi.py: Traceback (most recent call last):
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 774, in main
+    record = read_fastcgi_record(fcgi_stream)
+  File "C:\inetpub\wwwroot\msswebsite\env\lib\site-packages\wfastcgi.py", line 158, in read_fastcgi_record
+    data = stream.read(8)     # read record
+OSError: [Errno 22] Invalid argument
+2021-12-01 21:25:15.488057: Running on_exit tasks
+2021-12-01 21:25:15.489082: wfastcgi.py 3.0.0 closed
