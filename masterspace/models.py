@@ -35,7 +35,7 @@ class Service_Classification(models.Model):
 
 class Services(models.Model):
     title=models.CharField(max_length=100)
-    overview=models.TextField(max_length=255,default='Service short description here...')
+    overview=models.TextField(max_length=1500,default='Service short description here...')
     Service_modules=models.ManyToManyField('Service_modules',blank=True,null=True)
     classification=models.ForeignKey('Service_Classification',on_delete=models.CASCADE,related_name='services',blank=True,null=True)
     image=models.ImageField(upload_to='uploads/services/',blank=True,null=True,default='media/default.jpg')
