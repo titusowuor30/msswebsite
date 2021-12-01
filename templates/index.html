@@ -12,7 +12,9 @@
                                 <div class="banner-info">
                                     <h5>{{cm.title}}</h5>
                                     <h6>{{cm.overview}}</h6>
-                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'more' cm.id %}"> Learn More</a>
+                                    {% for s in cm.services.all %}
+                                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{% url 'more' s.id %}"> Learn More</a>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>

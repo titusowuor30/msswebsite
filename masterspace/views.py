@@ -7,7 +7,7 @@ import datetime
 # Create your views here.
 def home(request):
     qas=FAQs.objects.all()
-    front_office=Services.objects.all()
+    front_office=Service_Classification.objects.all()
     return render(request,'index.html',
     {'cms':front_office,'qas':qas,})
     

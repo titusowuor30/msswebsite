@@ -26,7 +26,7 @@ class Service_modules(models.Model):
 
 class Service_Classification(models.Model):
     title=models.CharField(max_length=255)  
-    overview=models.TextField(max_length=500,blank=True,null=True) 
+    overview=models.TextField(max_length=500,default="classicficatio description") 
     def __str__(self):
             return self.title
 
